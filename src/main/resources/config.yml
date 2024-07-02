@@ -1,0 +1,6 @@
+# When enabled, items dropped by players on death will enter the corresponding slots for different players
+apply-to-all-players: false
+
+# Permission required to use KeepSlots
+# By default the keepslots.default permission is given to all players, but this can be disabled with something like LuckPerms
+permission: keepslots.default

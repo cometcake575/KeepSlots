@@ -1,0 +1,11 @@
+name: KeepSlots
+version: 1.0.0
+main: com.starshootercity.keepslots.KeepSlots
+description: Places items you dropped on death back into the slots they were in before
+api-version: '1.18'
+author: cometcake575
+
+permissions:
+  keepslots.default:
+    description: Causes KeepSlots to function for the player
+    default: true
