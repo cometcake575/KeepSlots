@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPickupItemEvent;
+import org.bukkit.event.entity.ItemMergeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataContainer;
@@ -33,6 +34,13 @@ public class KeepSlots extends JavaPlugin implements Listener {
             container.set(indexKey, PersistentDataType.INTEGER, i);
         }
         event.getDrops().clear();
+    }
+
+    @EventHandler
+    public void onItemMerge(ItemMergeEvent event) {
+        if (event.getEntity().getPersistentDataContainer().has(uuidKey, PersistentDataType.STRING) || event.getTarget().getPersistentDataContainer().has(indexKey, PersistentDataType.INTEGER)) {
+            event.setCancelled(true);
+        }
     }
 
     @EventHandler
